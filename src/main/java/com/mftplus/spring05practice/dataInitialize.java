@@ -10,6 +10,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Set;
 
 @Component
@@ -56,16 +57,16 @@ public class dataInitialize implements CommandLineRunner {
                 .password("a123")
                 .roleSet(Set.of(role))
                 .build();
-        userService.save(user1);
-        log.info("user1 added{}", userService.save(user1));
+//        userService.save(user1);
+//        log.info("user1 added{}", userService.save(user1));
 
         User user2 = User.builder()
                 .username("bb")
                 .password("b321")
                 .roleSet(Set.of(role1))
                 .build();
-        userService.save(user2);
-        log.info("user2 added {}", userService.save(user2));
+//        userService.save(user2);
+//        log.info("user2 added {}", userService.save(user2));
 
 
         User user3 = User.builder()
@@ -73,22 +74,21 @@ public class dataInitialize implements CommandLineRunner {
                 .password("c45")
                 .roleSet(Set.of(role2))
                 .build();
-        userService.save(user3);
-        log.info("user3 added {}", userService.save(user3));
+//        userService.save(user3);
+//        log.info("user3 added {}", userService.save(user3));
 
         User user4 = User.builder()
                 .username("user")
                 .password("us5")
                 .roleSet(Set.of(role3))
                 .build();
-        userService.save(user4);
-        log.info("user4 added {}", userService.save(user4));
+//        userService.save(user4);
+//        log.info("user4 added {}", userService.save(user4));
 //      log.info("Password Found {}",userService.findByPassword("$2a$10$m1Xpxlk2dcRNd5jjksKeYOkcbq09NZTyActxUTySVTppcI6wqPLJO"));
 
-
-//        userService.saveAll(List.of(user1,user2,user3,user4));
-//        log.info("users add {}",userService.saveAll(List.of(user1,user2,user3,user4)));
-
+        userService.saveAll(List.of(user1,user2,user3,user4));
+        log.info("users add {}",userService.saveAll(List.of(user1,user2,user3,user4)));
+//-------------------------------------------------------------------------------------------------------------------------------------------------
 
 //        Card card = Card
 //                .builder()

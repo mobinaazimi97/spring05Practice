@@ -4,33 +4,31 @@ import com.mftplus.spring05practice.user.CustomUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
 
 @Configuration
 //@EnableWebSecurity
 //@EnableMethodSecurity
 public class SecurityConfig {
+    private final CustomUserDetailService customUserDetailService;
 
-    private final CustomUserDetailService customUserDetailsService;
-
-    public SecurityConfig(CustomUserDetailService customUserDetailsService) {
-        this.customUserDetailsService = customUserDetailsService;
+    public SecurityConfig(CustomUserDetailService customUserDetailService) {
+        this.customUserDetailService = customUserDetailService;
     }
 
 
-//   @Bean
+//    @Bean
     public SecurityFilterChain springSecurityFilterChain(HttpSecurity http) throws Exception {
         http
-//                .csrf(AbstractHttpConfigurer :: disable)
+                .csrf(AbstractHttpConfigurer :: disable)
                 .authorizeHttpRequests(auth -> {
                     auth
                             .requestMatchers("/", "/index", "/login","/signup", "/logout").permitAll()
                             .requestMatchers("/admin/**").hasRole("ADMIN")
                             .requestMatchers("/customer/**").hasRole("CUSTOMER")
-                            .requestMatchers("/**").hasRole("MANAGER")
                             .anyRequest().authenticated();
                 })
                 .formLogin(formLogin -> {
@@ -54,6 +52,4 @@ public class SecurityConfig {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
 }

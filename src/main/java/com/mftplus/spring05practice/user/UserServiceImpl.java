@@ -11,28 +11,22 @@ import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
-
     private final UserRepository userRepository;
-
     public UserServiceImpl(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-    //Bean
+        this.userRepository = userRepository;}
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
-
-    @Override
-    public List<User> saveAll(List<User> users) {
-        return userRepository.saveAll(users);
-    }
-
+        return new BCryptPasswordEncoder();}
     @Override
     public User save(User user) {
         user.setPassword(passwordEncoder().encode(user.getPassword()));
         return userRepository.save(user);
     }
 
+
+    @Override
+    public List<User> saveAll(List<User> users) {
+        return userRepository.saveAll(users);
+    }
     @Override
     public User update(User user) {
         return userRepository.save(user);
