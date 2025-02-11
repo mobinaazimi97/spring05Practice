@@ -4,4 +4,4 @@ there are 2 items for practice in this repository :
 
 2- person/permission/user/role -> best practice for spring security(Login)
 
-dependencies exists on pom.xml
+dependencies exist on pom.xml
