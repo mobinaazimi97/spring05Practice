@@ -1,4 +1,4 @@
-package com.mftplus.spring05practice.person;
+package com.mftplus.spring05practice.user;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,6 +16,6 @@ public class CustomUserDetailService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByUsername(username)
-                .orElseThrow(()->new UsernameNotFoundException(username));
+                .orElseThrow(() -> new UsernameNotFoundException(username));
     }
 }

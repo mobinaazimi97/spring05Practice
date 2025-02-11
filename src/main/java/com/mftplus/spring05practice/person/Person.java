@@ -1,5 +1,6 @@
 package com.mftplus.spring05practice.person;
 
+import com.mftplus.spring05practice.user.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

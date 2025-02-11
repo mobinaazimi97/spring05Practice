@@ -1,4 +1,4 @@
-package com.mftplus.spring05practice.person;
+package com.mftplus.spring05practice.permission;
 
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -18,8 +18,6 @@ import lombok.experimental.SuperBuilder;
 public class Permission {
 
     @Id
-//    @SequenceGenerator(name = "permissionSeq", sequenceName = "permission_seq", allocationSize = 1)
-//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "permissionSeq")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 

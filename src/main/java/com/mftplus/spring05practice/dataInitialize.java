@@ -1,6 +1,11 @@
 package com.mftplus.spring05practice;
 
-import com.mftplus.spring05practice.person.*;
+import com.mftplus.spring05practice.permission.Permission;
+import com.mftplus.spring05practice.permission.PermissionService;
+import com.mftplus.spring05practice.role.Role;
+import com.mftplus.spring05practice.role.RoleService;
+import com.mftplus.spring05practice.user.User;
+import com.mftplus.spring05practice.user.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

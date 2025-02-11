@@ -1,6 +1,6 @@
 package com.mftplus.spring05practice.configuration;
 
-import com.mftplus.spring05practice.person.CustomUserDetailService;
+import com.mftplus.spring05practice.user.CustomUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

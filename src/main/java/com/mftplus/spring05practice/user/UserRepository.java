@@ -1,4 +1,4 @@
-package com.mftplus.spring05practice.person;
+package com.mftplus.spring05practice.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

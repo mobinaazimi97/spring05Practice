@@ -1,5 +1,6 @@
-package com.mftplus.spring05practice.person;
+package com.mftplus.spring05practice.user;
 
+import com.mftplus.spring05practice.role.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,23 +36,11 @@ public class User implements UserDetails {
     private boolean credentialsNonExpired;
     private boolean enabled;
 
-//    @Column(name = "locked")
-//    private boolean locked;
-
-//    @ManyToMany(fetch = FetchType.EAGER)
-//    @JoinTable(
-//            name = "user_role_tbl",
-//            joinColumns = @JoinColumn(name = "username"),
-//            inverseJoinColumns = @JoinColumn(name = "role_name"),
-//            foreignKey = @ForeignKey(name = "fk_user_role"),
-//            inverseForeignKey = @ForeignKey(name = "fk_inverse_user_role")
-//    )
-
     @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
     private Set<Role> roleSet;
 
-    public void addRole(Role role){
-        if(roleSet == null){
+    public void addRole(Role role) {
+        if (roleSet == null) {
             roleSet = new HashSet<>();
         }
         roleSet.add(role);

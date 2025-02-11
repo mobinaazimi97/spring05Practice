@@ -1,4 +1,4 @@
-package com.mftplus.spring05practice.person;
+package com.mftplus.spring05practice.permission;
 
 
 import java.util.List;

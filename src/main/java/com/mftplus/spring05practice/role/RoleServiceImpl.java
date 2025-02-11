@@ -1,4 +1,4 @@
-package com.mftplus.spring05practice.person;
+package com.mftplus.spring05practice.role;
 
 
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RoleServiceImpl  implements RoleService{
+public class RoleServiceImpl  implements RoleService {
     private final RoleRepository roleRepository;
 
     public RoleServiceImpl(RoleRepository roleRepository) {

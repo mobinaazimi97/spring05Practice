@@ -1,4 +1,4 @@
-package com.mftplus.spring05practice.person;
+package com.mftplus.spring05practice.user;
 
 
 import org.springframework.data.domain.Page;
@@ -8,7 +8,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -18,8 +17,7 @@ public class UserServiceImpl implements UserService {
     public UserServiceImpl(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
-    //    @Bean
+    //Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
@@ -31,7 +29,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User save(User user) {
-//        return userRepository.save(user);
         user.setPassword(passwordEncoder().encode(user.getPassword()));
         return userRepository.save(user);
     }
@@ -56,11 +53,6 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(String username) {
         return userRepository.findByUsername(username).orElse(null);
     }
-
-//    @Override
-//    public User findByUsername(String username) {
-//        return userRepository.findByUsername(username);
-//    }
 
     @Override
     public List<User> findByPassword(String password) {
